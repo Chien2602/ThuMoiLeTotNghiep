@@ -206,7 +206,9 @@ export default function Component() {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set())
   const [isPhotoModalOpen, setIsPhotoModalOpen] = useState(false)
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0)
-  const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
+  const [windowWidth, setWindowWidth] = useState(0)
+  const [isClient, setIsClient] = useState(false)
+  const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({})
 
   const photos = [
     {
@@ -244,16 +246,25 @@ export default function Component() {
   ]
 
   useEffect(() => {
+    setIsClient(true)
     setIsLoaded(true)
+    
+    // Set initial window width
+    setWindowWidth(window.innerWidth)
+    
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY })
     }
     const handleScroll = () => {
       setScrollY(window.scrollY)
     }
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth)
+    }
 
     window.addEventListener("mousemove", handleMouseMove)
     window.addEventListener("scroll", handleScroll)
+    window.addEventListener("resize", handleResize)
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -273,6 +284,7 @@ export default function Component() {
     return () => {
       window.removeEventListener("mousemove", handleMouseMove)
       window.removeEventListener("scroll", handleScroll)
+      window.removeEventListener("resize", handleResize)
       observer.disconnect()
     }
   }, [])
@@ -344,9 +356,34 @@ export default function Component() {
 
       {/* Enhanced Floating Elements - Reduced on Mobile */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        {[...Array(window.innerWidth < 768 ? 8 : 15)].map((_, i) => (
+        {isClient && [...Array(windowWidth < 768 ? 8 : 15)].map((_, i) => (
           <div
             key={i}
+            className="absolute animate-float opacity-40 sm:opacity-60"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 6}s`,
+              animationDuration: `${8 + Math.random() * 6}s`,
+            }}
+          >
+            {i % 5 === 0 ? (
+              <Heart className="w-3 h-3 sm:w-4 sm:h-4 text-pink-400/40" />
+            ) : i % 5 === 1 ? (
+              <Star className="w-2 h-2 sm:w-3 sm:h-3 text-rose-400/40" />
+            ) : i % 5 === 2 ? (
+              <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-pink-500/35" />
+            ) : i % 5 === 3 ? (
+              <Flower2 className="w-2 h-2 sm:w-3 sm:h-3 text-rose-500/35" />
+            ) : (
+              <Crown className="w-2 h-2 sm:w-3 sm:h-3 text-purple-400/35" />
+            )}
+          </div>
+        ))}
+        {/* Fallback for SSR */}
+        {!isClient && [...Array(8)].map((_, i) => (
+          <div
+            key={`fallback-${i}`}
             className="absolute animate-float opacity-40 sm:opacity-60"
             style={{
               left: `${Math.random() * 100}%`,
@@ -387,7 +424,9 @@ export default function Component() {
         {/* Enhanced Hero Section - Mobile Optimized */}
         <section
           id="hero"
-          ref={(el) => (sectionRefs.current.hero = el)}
+          ref={(el) => {
+            sectionRefs.current.hero = el
+          }}
           className={`min-h-screen flex items-center justify-center px-3 sm:px-6 transition-all duration-1000 relative ${
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           }`}
@@ -395,7 +434,7 @@ export default function Component() {
             backgroundImage: "url('/placeholder.svg?height=1080&width=1920')",
             backgroundSize: "cover",
             backgroundPosition: "center",
-            backgroundAttachment: window.innerWidth > 768 ? "fixed" : "scroll", // Disable fixed on mobile
+            backgroundAttachment: isClient && windowWidth > 768 ? "fixed" : "scroll", // Disable fixed on mobile
           }}
         >
           <div className="absolute inset-0 bg-white/40"></div>
@@ -467,7 +506,9 @@ export default function Component() {
         {/* Enhanced Photo Gallery Section - Mobile Optimized */}
         <section
           id="gallery"
-          ref={(el) => (sectionRefs.current.gallery = el)}
+          ref={(el) => {
+            sectionRefs.current.gallery = el
+          }}
           className={`py-12 sm:py-20 px-3 sm:px-6 transition-all duration-1000 ${
             isVisible("gallery") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           }`}
@@ -547,7 +588,9 @@ export default function Component() {
         {/* Enhanced Main Information Section - Mobile Optimized */}
         <section
           id="main-info"
-          ref={(el) => (sectionRefs.current["main-info"] = el)}
+          ref={(el) => {
+            sectionRefs.current["main-info"] = el
+          }}
           className={`py-12 sm:py-20 px-3 sm:px-6 transition-all duration-1200 delay-200 ${
             isVisible("main-info") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           }`}
@@ -684,7 +727,9 @@ export default function Component() {
         {/* Enhanced Special Highlight Section - Mobile Optimized */}
         <section
           id="highlight"
-          ref={(el) => (sectionRefs.current.highlight = el)}
+          ref={(el) => {
+            sectionRefs.current.highlight = el
+          }}
           className={`py-12 sm:py-20 px-3 sm:px-6 transition-all duration-1000 delay-200 ${
             isVisible("highlight") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           }`}
@@ -752,7 +797,9 @@ export default function Component() {
         {/* Enhanced Invitation Messages Section - Mobile Optimized */}
         <section
           id="invitation"
-          ref={(el) => (sectionRefs.current.invitation = el)}
+          ref={(el) => {
+            sectionRefs.current.invitation = el
+          }}
           className={`py-12 sm:py-20 px-3 sm:px-6 transition-all duration-1000 delay-300 ${
             isVisible("invitation") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           }`}
@@ -858,7 +905,9 @@ export default function Component() {
         {/* Google Maps Directions Section - Mobile Optimized */}
         <section
           id="directions"
-          ref={(el) => (sectionRefs.current.directions = el)}
+          ref={(el) => {
+            sectionRefs.current.directions = el
+          }}
           className={`py-12 sm:py-20 px-3 sm:px-6 transition-all duration-1000 delay-400 ${
             isVisible("directions") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           }`}
@@ -1033,7 +1082,9 @@ export default function Component() {
         {/* Enhanced Footer - Mobile Optimized */}
         <section
           id="footer"
-          ref={(el) => (sectionRefs.current.footer = el)}
+          ref={(el) => {
+            sectionRefs.current.footer = el
+          }}
           className={`py-12 sm:py-16 px-3 sm:px-6 transition-all duration-1000 delay-400 ${
             isVisible("footer") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
