@@ -288,33 +288,33 @@ export default function Component() {
       src: "/images/room.jpg?height=600&width=400",
       title: "Lễ 30/4",
       description:
-        "Khoảnh khắc thiêng liêng khi nhận bằng tốt nghiệp sau bao năm miệt mài học tập. Niềm vui và tự hào hiện rõ trên gương mặt trong ngày trọng đại này.",
-      date: "15/12/2024",
-      location: "Hội trường A1",
+        "Thật may mắn khi đc trải qua cùng người tôi luôn tin tưởng trong khoảnh khắc thiêng liêng này. Người đã giúp Thu lớn lên như ngày hôm nay.",
+      date: "30/04/2025",
+      location: "KTX sư phạm TP.HCM",
     },
     {
       src: "/images/class.jpg?height=600&width=400",
-      title: "Cùng Lớp học",
+      title: "Cùng lớp học",
       description:
-        "Những người bạn thân thiết đã cùng nhau vượt qua mọi khó khăn trong suốt quá trình học tập. Tình bạn đẹp sẽ mãi là kỷ niệm không thể nào quên.",
-      date: "15/12/2024",
-      location: "Sân trường",
+        "Một trải nghiệm đầu đời với bao cảm xúc, bài học",
+      date: "16/04/2024",
+      location: "Trường Tiểu học Phú Định",
     },
     {
       src: "/images/friend.jpg?height=600&width=400",
-      title: "Cùng bạn bè",
+      title: "Cùng tâm giao",
       description:
-        "Gia đình là nguồn động lực lớn nhất giúp em hoàn thành chặng đường học tập. Niềm hạnh phúc được chia sẻ cùng những người thân yêu nhất.",
-      date: "15/12/2024",
-      location: "Khuôn viên trường",
+        "Thật buồn vì biết bạn quá trễ nhưng cảm ơn bạn đã làm cuộc sống đại học của tôi thêm phần rực rỡ. + 1 người tôi tin tưởng",
+      date: "23/01/2025",
+      location: "Kim Sơn, Ninh Bình",
     },
     {
       src: "/images/trai.jpg?height=600&width=400",
-      title: "Trại Xuân 2024",
+      title: "Kỉ niệm khó quên",
       description:
-        "Thành quả của bao năm nỗ lực học tập cuối cùng cũng được ghi nhận. Đây là bước đệm quan trọng cho hành trình mới phía trước.",
-      date: "15/12/2024",
-      location: "Hội trường chính",
+        "Sẽ mãi nhớ từng con người nơi đây, rất may mắn khi được gặp các bạn.",
+      date: "31/12/2024",
+      location: "KTX sư phạm TP.HCM",
     },
   ];
 
@@ -518,7 +518,7 @@ export default function Component() {
                 <div className="w-16 sm:w-32 h-1 bg-cyan-500 rounded-full"></div>
               </div>
               <p className="text-xl sm:text-2xl md:text-3xl text-gray-700 font-light tracking-wide leading-relaxed">
-                Một cột mốc quan trọng đáng được chia sẻ
+                Dấu mốc quan trọng khép lại những năm tháng tuổi trẻ đầy nhiệt huyết, để bắt đầu hành trình mới với bao ước mơ và thử thách 
               </p>
             </div>
             <div className="mt-12 sm:mt-20 animate-bounce">
@@ -549,7 +549,7 @@ export default function Component() {
                 <div className="w-24 sm:w-32 h-1 bg-pink-500 rounded-full"></div>
               </div>
               <p className="text-lg sm:text-xl text-gray-600">
-                Click vào ảnh để xem chi tiết và cảm nhận trọn vẹn khoảnh khắc
+                Một phần thanh xuân của tôi
               </p>
             </div>
 
@@ -661,8 +661,7 @@ export default function Component() {
                         </div>
                       </div>
                       <p className="text-lg sm:text-xl md:text-2xl text-gray-600 leading-relaxed max-w-4xl mx-auto">
-                        Chia sẻ niềm vui cùng gia đình và bạn bè trong ngày đặc
-                        biệt
+                        Thân gửi những người tôi yêu
                       </p>
                     </div>
                   </div>
@@ -709,7 +708,7 @@ export default function Component() {
                     {
                       icon: Clock,
                       title: "Thời gian",
-                      value: "8:00 AM",
+                      value: "10:30 AM",
                       color: "bg-cyan-500",
                       bgColor: "bg-cyan-50/70",
                     },
@@ -866,23 +865,15 @@ export default function Component() {
                       icon: Flower2,
                       title: "Đến những người thân yêu",
                       content:
-                        "Sau bao năm tháng miệt mài học tập, hôm nay là ngày em được nhận tấm bằng tốt nghiệp. Thành công này không thể thiếu sự động viên, ủng hộ của gia đình và bạn bè. Em chân thành mời mọi người đến chung vui trong ngày đặc biệt này.",
+                        "Buổi lễ tốt nghiệp này là dấu mốc quan trọng trong cuộc đời mình và niềm vui ấy sẽ trọn vẹn hơn nếu có sự hiện diện của bạn.Mình rất mong mọi người sẽ dành thời gian quý báu để đến dự lễ tốt nghiệp của mình , cùng mình chia sẻ khoảnh khắc đáng nhớ này.",
                       color: "bg-pink-500",
                       bgColor: "bg-white/70",
-                    },
-                    {
-                      icon: Heart,
-                      title: "Chia sẻ niềm vui",
-                      content:
-                        "Niềm vui sẽ nhân đôi khi được chia sẻ cùng những người em yêu thương. Sự hiện diện của mọi người sẽ là món quà ý nghĩa nhất mà em có thể nhận được trong ngày tốt nghiệp này. Hãy đến và cùng em tạo nên những kỷ niệm đẹp nhé!",
-                      color: "bg-cyan-500",
-                      bgColor: "bg-cyan-50/70",
                     },
                     {
                       icon: Gift,
                       title: "Lời cảm ơn",
                       content:
-                        "Em xin gửi lời cảm ơn sâu sắc đến tất cả mọi người đã luôn bên cạnh, động viên em trong suốt quá trình học tập. Mong rằng mọi người sẽ dành thời gian đến dự lễ tốt nghiệp để cùng em đánh dấu cột mốc quan trọng này.",
+                        "Mình xin gửi lời cảm ơn sâu sắc đến tất cả mọi người đã luôn bên cạnh, động viên mình trong suốt quá trình học tập. Mong rằng mọi người sẽ dành thời gian đến dự lễ tốt nghiệp để cùng mình đánh dấu cột mốc quan trọng này.",
                       color: "bg-pink-500",
                       bgColor: "bg-pink-50/70",
                     },
@@ -928,7 +919,7 @@ export default function Component() {
                           Điện thoại
                         </p>
                         <p className="text-lg sm:text-xl font-bold">
-                          0123 456 789
+                          0965187496
                         </p>
                       </div>
                     </div>
@@ -941,7 +932,7 @@ export default function Component() {
                           Email
                         </p>
                         <p className="text-lg sm:text-xl font-bold">
-                          thu@email.com
+                          thutran081002@gmail.com
                         </p>
                       </div>
                     </div>
@@ -1086,7 +1077,7 @@ export default function Component() {
                           Liên hệ
                         </p>
                         <p className="text-gray-700 text-sm sm:text-base">
-                          028 3835 2020 (Phòng Hành chính)
+                          0965187496
                         </p>
                       </div>
                     </div>
