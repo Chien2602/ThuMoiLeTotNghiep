@@ -2,9 +2,10 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'Lễ Tốt Nghiệp - Thiệp Mời',
+  description: 'Thiệp mời dự lễ tốt nghiệp đặc biệt',
   generator: 'v0.dev',
+  charset: 'utf-8',
 }
 
 export default function RootLayout({
@@ -13,7 +14,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="vi" suppressHydrationWarning>
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
       <body>{children}</body>
     </html>
   )
