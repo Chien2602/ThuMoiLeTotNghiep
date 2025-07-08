@@ -1164,9 +1164,8 @@ export default function GraduationInvitation() {
               ))}
             </div>
             <div className="text-gray-600 text-xs sm:text-sm leading-relaxed relative z-10">
-              © 2025 - Thiệp mời tốt nghiệp được thiết kế với tình yêu
-              <br />
-              <span className="text-pink-500 font-semibold">Thu</span> dành cho mọi người
+              © 2025 - Thiệp mời tốt nghiệp được thiết kế với tình yêu thương của
+              <span className="text-pink-500 font-semibold"> Thu</span> dành cho mọi người
             </div>
           </div>
         </div>
